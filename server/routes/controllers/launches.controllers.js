@@ -1,5 +1,7 @@
+const launches = require("../../models/launches.model");
+
 function getLaunches(req, res) {
-  res.send("get launches");
+  res.send(launches);
 }
 
 function submitLaunch(req, res) {
