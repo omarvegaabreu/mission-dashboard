@@ -1,17 +1,17 @@
 const launches = require("../../models/launches.model");
 
 function getLaunches(req, res) {
-  res.send(launches);
+  res.json(launches);
 }
 
 function submitLaunch(req, res) {
-  const launch = {
-    date: req.body.date,
-    missionName: req.body.missionName,
-    rocketType: req.body.rocketType,
-    destinationPlanet: req.body.destinationPlanet,
-  };
-  console.log(launch);
+  const { date, missionName, rocketType, destinationPlanet } = req.body;
+
+  if (!date && !missionName && !destinationPlanet) {
+    return res.status(400).json("There was no launch submitted");
+  }
+
+  launches.push({ date, missionName, rocketType, destinationPlanet });
 }
 
 function abortLaunch(req, res) {

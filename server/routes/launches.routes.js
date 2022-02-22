@@ -8,7 +8,7 @@ const {
 } = require("./controllers/launches.controllers");
 
 launchesRouter.get("/", getLaunches);
-launchesRouter.post("/:id", submitLaunch);
+launchesRouter.post("/", submitLaunch);
 launchesRouter.delete("/:id", abortLaunch);
 
 module.exports = launchesRouter;
