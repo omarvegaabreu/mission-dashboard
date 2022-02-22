@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const port = 5000;
 const launchesRouter = require("../routes/launches.routes");
+const planetsRouter = require("../routes/planets.routes");
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -14,6 +15,8 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use("/launches", launchesRouter);
+
+app.use("/planets", planetsRouter);
 
 app.listen(port, () => {
   console.log(`App is listening on ${port}`);
