@@ -1,11 +1,10 @@
 const launchesModel = require("../../models/launches.model");
 
 function getLaunches(req, res) {
-  console.log(launchesModel);
   if (!launchesModel) {
     return res.status(400).json("There are no scheduled launches");
   }
-  res.status(200).json(launchesModel);
+  return res.status(200).json(launchesModel);
 }
 
 function submitLaunch(req, res) {
