@@ -1,12 +1,9 @@
 const express = require("express");
 
 const app = express();
-const cors = require("cors");
 
 const launchesRouter = require("./routes/launchesRoutes/launches.routes");
 const planetsRouter = require("./routes/planetsRoutes/planets.routes");
-
-app.use(cors());
 
 app.use((req, res, next) => {
   const start = Date.now();
