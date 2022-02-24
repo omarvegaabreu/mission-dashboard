@@ -1,8 +1,12 @@
 const express = require("express");
 
 const app = express();
+const cors = require("cors");
+
 const launchesRouter = require("./routes/launchesRoutes/launches.routes");
 const planetsRouter = require("./routes/planetsRoutes/planets.routes");
+
+app.use(cors());
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -13,8 +17,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use("/launches", launchesRouter);
-
+app.use(launchesRouter);
 app.use(planetsRouter);
 
 module.exports = app;
