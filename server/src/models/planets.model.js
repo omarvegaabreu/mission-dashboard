@@ -13,7 +13,7 @@ function isHabitable(planet) {
   );
 }
 
-fs.createReadStream("./kepler_data.csv")
+fs.createReadStream("../data/kepler_data.csv")
   .pipe(
     parse({
       comment: "#",
