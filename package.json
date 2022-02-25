@@ -6,11 +6,11 @@
   "scripts": {
     "install-server": "npm install --prefix server",
     "install-client": "npm install --prefix client",
-    "install":"npm run install-server && npm run install-client",
+    "install": "npm run install-server && npm run install-client",
     "client": "npm run start --prefix client",
     "server": "npm run watch --prefix server",
     "watch": "npm run server & npm run client",
-    "deploy":"npm run build --client && npm run start --prefix server",
+    "deploy": "npm run build --prefix client && npm run start --prefix server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/omarvegaabreu/mission-dashboard/issues"
   },
-  "homepage": "https://github.com/omarvegaabreu/mission-dashboard#readme"
+  "homepage": "https://github.com/omarvegaabreu/mission-dashboard#readme",
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
 }

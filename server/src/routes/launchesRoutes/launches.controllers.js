@@ -8,21 +8,15 @@ function getLaunches(req, res) {
 }
 
 function submitLaunch(req, res) {
-  const { id, date, missionName, rocketType, destinationPlanet } = req.body;
+  const { launches } = req.body;
+  console.log(launches);
+  // if (!date && !missionName && !destinationPlanet) {
+  //   return res
+  //     .status(400)
+  //     .json("You did not submit a launch, please try again");
+  // }
 
-  if (!date && !missionName && !destinationPlanet) {
-    return res
-      .status(400)
-      .json("You did not submit a launch, please try again");
-  }
-
-  launchesModel.push({
-    id: launchesModel.length,
-    date,
-    missionName,
-    rocketType,
-    destinationPlanet,
-  });
+  // launchesModel.push(launches);
 }
 
 function abortLaunch(req, res) {
