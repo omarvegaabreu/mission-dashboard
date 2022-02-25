@@ -24,7 +24,7 @@
     "url": "https://github.com/omarvegaabreu/mission-dashboard/issues"
   },
   "homepage": "https://github.com/omarvegaabreu/mission-dashboard#readme",
-  "devDependencies": {
+  "dependencies": {
     "morgan": "^1.10.0"
   }
 }
