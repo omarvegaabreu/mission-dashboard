@@ -8,8 +8,9 @@ function getLaunches(req, res) {
 }
 
 function submitLaunch(req, res) {
-  const { launches } = req.body;
-  console.log(launches);
+  console.log(req);
+  // const { launches } = req.body;
+  // console.log(launches);
   // if (!date && !missionName && !destinationPlanet) {
   //   return res
   //     .status(400)

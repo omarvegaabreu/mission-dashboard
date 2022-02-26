@@ -1,27 +1,27 @@
 // const { getLaunches } = require("../routes/controllers/launches.controllers");
 
-const launch = [
+const launches = [
   {
-    id: 0,
-    date: "12/24/11",
-    missionName: "omar alejandro",
-    rocketType: "other rocket",
-    destinationPlanet: "first planet",
+    number: 0,
+    date: "2012-24-11",
+    mission: "omar alejandro",
+    rocket: "other rocket",
+    customer: "first planet",
   },
   {
-    id: 1,
-    date: "11/11/11",
-    missionName: "alejandro",
-    rocketType: "alejandro rocket",
-    destinationPlanet: "alejandro planet",
+    number: 1,
+    date: "2011-11-11",
+    mission: "alejandro",
+    rocket: "alejandro rocket",
+    customer: "alejandro planet",
   },
   {
-    id: 2,
-    date: "22/22/2222",
-    missionName: "omar alejandro",
-    rocketType: "other rocket",
-    destinationPlanet: "first planet",
+    number: 2,
+    date: "2022-22-22",
+    mission: "omar alejandro",
+    rocket: "other rocket",
+    customer: "first planet",
   },
 ];
 
-module.exports = launch;
+module.exports = launches;
