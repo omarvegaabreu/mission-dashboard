@@ -1,10 +1,12 @@
-const launchesModel = require("../../models/launches.model");
+const { launches: launchesModel } = require("../../models/launches.model");
+// const launchesModel = launches;
 
 function getLaunches(req, res) {
+  console.log(launchesModel);
   if (!launchesModel) {
     return res.status(400).json("There are no scheduled launches");
   }
-  return res.status(200).json(launchesModel);
+  return res.status(200).json(Array.from(launchesModel.values()));
 }
 
 function submitLaunch(req, res) {
