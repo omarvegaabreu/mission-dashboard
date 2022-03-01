@@ -1,17 +1,15 @@
-const { launches: launchesModel } = require("../../models/launches.model");
+const {
+  httpGetAllLaunches,
+  newLaunch,
+} = require("../../models/launches.model");
 // const launchesModel = launches;
 
 function getLaunches(req, res) {
-  console.log(launchesModel);
-  if (!launchesModel) {
-    return res.status(400).json("There are no scheduled launches");
-  }
-  return res.status(200).json(Array.from(launchesModel.values()));
+  return res.status(200).json(httpGetAllLaunches());
 }
 
 function submitLaunch(req, res) {
-  console.log(req);
-  // const { launches } = req.body;
+  const launches = req.body;
   // console.log(launches);
   // if (!date && !missionName && !destinationPlanet) {
   //   return res
@@ -19,7 +17,7 @@ function submitLaunch(req, res) {
   //     .json("You did not submit a launch, please try again");
   // }
 
-  // launchesModel.push(launches);
+  console.log(launches);
 }
 
 function abortLaunch(req, res) {
