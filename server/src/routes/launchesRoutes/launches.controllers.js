@@ -1,6 +1,6 @@
 const {
   httpGetAllLaunches,
-  newLaunch,
+  addNewLaunch,
 } = require("../../models/launches.model");
 // const launchesModel = launches;
 
@@ -9,21 +9,16 @@ function getLaunches(req, res) {
 }
 
 function submitLaunch(req, res) {
-  const launches = req.body;
-  // console.log(launches);
-  // if (!date && !missionName && !destinationPlanet) {
-  //   return res
-  //     .status(400)
-  //     .json("You did not submit a launch, please try again");
-  // }
+  const clientLaunches = req.body;
 
-  console.log(launches);
+  addNewLaunch(clientLaunches);
+  return res.status(200).json("Lunch successful");
 }
 
 function abortLaunch(req, res) {
   const launchId = Number(req.params.id);
   const currentLaunch = launchesModel[launchId];
-  // console.log(launchesModel);
+
   if (!currentLaunch || currentLaunch === undefined || currentLaunch === null) {
     return res.status(400).json("No launch up for deletion");
   }

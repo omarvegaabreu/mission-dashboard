@@ -35,7 +35,6 @@ function loadPlanetsData() {
       .on("end", () => {
         console.log(results.map((result) => result["kepler_name"]));
         resolve();
-        // console.log(`There are ${results.length} habitable planets`);
       });
   });
 }
