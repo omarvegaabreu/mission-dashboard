@@ -16,22 +16,21 @@ function submitLaunch(req, res) {
 }
 
 function abortLaunch(req, res) {
-  const launchId = Number(req.params.id);
+  // console.log("abort launches");
+  // console.log(httpGetAllLaunches());
+  // console.log("abort launches");
+  const launchId = Number(req.params.flightNumber);
   const currentLaunch = launchesModel[launchId];
-
   if (!currentLaunch || currentLaunch === undefined || currentLaunch === null) {
     return res.status(400).json("No launch up for deletion");
   }
-
   if (launchesModel === []) {
     return res.status(400).json("empty object");
   }
-
   launchesModel.splice(
     launchesModel.findIndex((a) => a.id === currentLaunch.id),
     1
   );
-
   res.status(200).json(launchesModel);
 }
 
