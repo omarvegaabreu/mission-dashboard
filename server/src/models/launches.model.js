@@ -13,11 +13,11 @@ const launch = {
 
 launchesModel.set(launch.flightNumber, launch);
 
-function httpGetAllLaunches() {
+function getAllLaunches() {
   return Array.from(launchesModel.values());
 }
 
-function httpAddNewLaunch(launch) {
+function addNewLaunch(launch) {
   latestFlightNumber++;
   launchesModel.set(
     latestFlightNumber,
@@ -34,6 +34,6 @@ function httpAddNewLaunch(launch) {
 }
 
 module.exports = {
-  httpGetAllLaunches,
-  httpAddNewLaunch,
+  getAllLaunches,
+  addNewLaunch,
 };

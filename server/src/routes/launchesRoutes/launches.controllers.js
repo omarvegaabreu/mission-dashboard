@@ -1,21 +1,18 @@
-const {
-  httpGetAllLaunches,
-  httpAddNewLaunch,
-} = require("../../models/launches.model");
+const { getAllLaunches, addNewLaunch } = require("../../models/launches.model");
 // const launchesModel = launches;
 
-function getLaunches(req, res) {
-  return res.status(200).json(httpGetAllLaunches());
+function httpGetAllLaunches(req, res) {
+  return res.status(200).json(getAllLaunches());
 }
 
-function submitLaunch(req, res) {
+function httpAddNewLaunch(req, res) {
   const launch = req.body;
   launch.launchDate = new Date(launch.launchDate);
-  httpAddNewLaunch(launch);
+  addNewLaunch(launch);
   return res.status(201).json(launch);
 }
 
-function abortLaunch(req, res) {
+function httpDeleteLaunch(req, res) {
   const launchId = Number(req.params.flightNumber);
   const currentLaunch = launchesModel[launchId];
   if (!currentLaunch || currentLaunch === undefined || currentLaunch === null) {
@@ -32,7 +29,7 @@ function abortLaunch(req, res) {
 }
 
 module.exports = {
-  getLaunches,
-  submitLaunch,
-  abortLaunch,
+  httpGetAllLaunches,
+  httpAddNewLaunch,
+  httpDeleteLaunch,
 };
