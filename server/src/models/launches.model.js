@@ -28,9 +28,6 @@ function addNewLaunch(launch) {
       success: true,
     })
   );
-  // console.log("launch model");
-  // console.log(launchesModel);
-  // console.log("launch model");
 }
 
 module.exports = {

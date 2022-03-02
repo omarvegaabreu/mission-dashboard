@@ -8,6 +8,16 @@ function httpGetAllLaunches(req, res) {
 function httpAddNewLaunch(req, res) {
   const launch = req.body;
   launch.launchDate = new Date(launch.launchDate);
+
+  if (
+    !launch.mission ||
+    !launch.rocket ||
+    !launch.destination ||
+    !launch.launchDate
+  ) {
+    res.status(400).json("Missing launch information.");
+  }
+
   addNewLaunch(launch);
   return res.status(201).json(launch);
 }
