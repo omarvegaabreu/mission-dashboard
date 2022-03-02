@@ -15,7 +15,13 @@ function httpAddNewLaunch(req, res) {
     !launch.destination ||
     !launch.launchDate
   ) {
-    res.status(400).json("Missing launch information.");
+    res.status(400).json({
+      error: "Missing launch information.",
+    });
+  }
+
+  if (isNaN(launch.launchDate)) {
+    res.status(400).json({ error: "invalid date" });
   }
 
   addNewLaunch(launch);
