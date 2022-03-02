@@ -8,20 +8,23 @@ function httpGetAllLaunches(req, res) {
 function httpAddNewLaunch(req, res) {
   const launch = req.body;
   launch.launchDate = new Date(launch.launchDate);
+  console.log("add new launch");
+  console.log(launch);
+  console.log("add new launch");
 
   if (
     !launch.mission ||
     !launch.rocket ||
-    !launch.destination ||
+    !launch.target ||
     !launch.launchDate
   ) {
-    res.status(400).json({
+    return res.status(400).json({
       error: "Missing launch information.",
     });
   }
 
   if (isNaN(launch.launchDate)) {
-    res.status(400).json({ error: "invalid date" });
+    return res.status(400).json({ error: "invalid date" });
   }
 
   addNewLaunch(launch);
