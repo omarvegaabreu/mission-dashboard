@@ -1,6 +1,6 @@
 const {
   httpGetAllLaunches,
-  addNewLaunch,
+  httpAddNewLaunch,
 } = require("../../models/launches.model");
 // const launchesModel = launches;
 
@@ -9,16 +9,13 @@ function getLaunches(req, res) {
 }
 
 function submitLaunch(req, res) {
-  const clientLaunches = req.body;
-
-  addNewLaunch(clientLaunches);
-  return res.status(200).json("Lunch successful");
+  const launch = req.body;
+  launch.launchDate = new Date(launch.launchDate);
+  httpAddNewLaunch(launch);
+  return res.status(201).json(launch);
 }
 
 function abortLaunch(req, res) {
-  // console.log("abort launches");
-  // console.log(httpGetAllLaunches());
-  // console.log("abort launches");
   const launchId = Number(req.params.flightNumber);
   const currentLaunch = launchesModel[launchId];
   if (!currentLaunch || currentLaunch === undefined || currentLaunch === null) {

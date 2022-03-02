@@ -33,7 +33,7 @@ function loadPlanetsData() {
         rejects(error);
       })
       .on("end", () => {
-        console.log(results.map((result) => result["kepler_name"]));
+        // console.log(results.map((result) => result["kepler_name"]));
         resolve();
       });
   });
