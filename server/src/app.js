@@ -10,7 +10,7 @@ const planetsRouter = require("./routes/planetsRoutes/planets.routes");
 app.use(cors({ origin: "http://localhost:3000" }));
 
 // app.use(morgan("combined"));
-app.use(morgan("tiny"));
+app.use(morgan("combined"));
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "public")));

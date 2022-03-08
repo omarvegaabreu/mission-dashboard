@@ -1,4 +1,9 @@
-const { getAllLaunches, addNewLaunch } = require("../../models/launches.model");
+const {
+  getAllLaunches,
+  addNewLaunch,
+  existLaunchWithId,
+  abortLaunchById,
+} = require("../../models/launches.model");
 // const launchesModel = launches;
 
 function httpGetAllLaunches(req, res) {
@@ -8,9 +13,6 @@ function httpGetAllLaunches(req, res) {
 function httpAddNewLaunch(req, res) {
   const launch = req.body;
   launch.launchDate = new Date(launch.launchDate);
-  console.log("add new launch");
-  console.log(launch);
-  console.log("add new launch");
 
   if (
     !launch.mission ||
@@ -31,24 +33,19 @@ function httpAddNewLaunch(req, res) {
   return res.status(201).json(launch);
 }
 
-function httpDeleteLaunch(req, res) {
-  const launchId = Number(req.params.flightNumber);
-  const currentLaunch = launchesModel[launchId];
-  if (!currentLaunch || currentLaunch === undefined || currentLaunch === null) {
-    return res.status(400).json("No launch up for deletion");
+function httpAbortLaunch(req, res) {
+  const launchId = Number(req.params.id);
+
+  if (!existLaunchWithId(launchId)) {
+    return res.status(404).json("Launch not found");
   }
-  if (launchesModel === []) {
-    return res.status(400).json("empty object");
-  }
-  launchesModel.splice(
-    launchesModel.findIndex((a) => a.id === currentLaunch.id),
-    1
-  );
-  res.status(200).json(launchesModel);
+
+  const aborted = abortLaunchById(launchId);
+  return res.status(200).json(aborted);
 }
 
 module.exports = {
   httpGetAllLaunches,
   httpAddNewLaunch,
-  httpDeleteLaunch,
+  httpAbortLaunch,
 };
