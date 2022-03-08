@@ -31,11 +31,11 @@ function addNewLaunch(launch) {
 }
 
 function existLaunchWithId(launchId) {
-  return launch.has(launchId);
+  return launchesModel.has(launchId);
 }
 
 function abortLaunchById(launchId) {
-  const aborted = launch.get(launchId);
+  const aborted = launchesModel.get(launchId);
   aborted.upcoming = false;
   aborted.success = false;
   return aborted;
