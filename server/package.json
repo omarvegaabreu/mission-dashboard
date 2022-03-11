@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "watch": "nodemon src/server.js",
+    "test-watch":"jest --watch",
     "test": "jest"
   },
   "keywords": [],
