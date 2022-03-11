@@ -26,5 +26,8 @@
   "homepage": "https://github.com/omarvegaabreu/mission-dashboard#readme",
   "dependencies": {
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "supertest": "^6.2.2"
   }
 }
